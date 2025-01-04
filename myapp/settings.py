@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'myapp.urls'
@@ -80,14 +82,15 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.postgresql',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'blogdb@1234',
-        'HOST': 'db.ojrqueavoestvtcbktbn.supabase.co',
-        'PORT': '5432',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'postgres',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'blogdb@1234',
+    #     'HOST': 'db.ojrqueavoestvtcbktbn.supabase.co',
+    #     'PORT': '5432',
+    # }
+      'default': dj_database_url.parse(os.environ.get('DATABASE_URL','postgresql://blogdb_lst5_user:fdMH86Hxx0yNbnV6lEgp1fN0gHKTIcEQ@dpg-ctslgl5umphs73fnkok0-a.oregon-postgres.render.com/blogdb_lst5'))
 }
 
 
