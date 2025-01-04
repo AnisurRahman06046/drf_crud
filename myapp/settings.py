@@ -90,7 +90,7 @@ DATABASES = {
     #     'HOST': 'db.ojrqueavoestvtcbktbn.supabase.co',
     #     'PORT': '5432',
     # }
-      'default': dj_database_url.parse(os.environ.get('DATABASE_URL','postgresql://blogdb_lst5_user:fdMH86Hxx0yNbnV6lEgp1fN0gHKTIcEQ@dpg-ctslgl5umphs73fnkok0-a.oregon-postgres.render.com/blogdb_lst5'))
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL','postgresql://blogdb_lst5_user:fdMH86Hxx0yNbnV6lEgp1fN0gHKTIcEQ@dpg-ctslgl5umphs73fnkok0-a.oregon-postgres.render.com/blogdb_lst5'))
 }
 
 
